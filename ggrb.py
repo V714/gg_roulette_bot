@@ -17,7 +17,7 @@ def make_parse_args(args):
     parser.add_argument('--sex', default="both", help="Type female or male. Default: both")
     parser.add_argument('--login', help="Login, number, email I guess or sth.")
     parser.add_argument('--passw', help='Password')
-    args = parser.parse_args()
+    args = parser.parse_args(args)
 
     if not args.login:
         print("Press enter your login by --login LOGIN")

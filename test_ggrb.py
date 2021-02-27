@@ -1,16 +1,22 @@
 # Unittest of GG bot by V7
 
 import unittest
-from .dir import main
+import ggrb
 
 class ParserTest(unittest.TestCase):
     
-    def setup(self):
-        self.parser = main.make.parse_args()
+    def test_values(self):
+        login = "test_login"
+        password = "test_password"
+        sex = 'female'
+        loops = '34'
 
+        parser = ggrb.make_parse_args(["--login",login,"--passw",password,'--sex',sex,'--loops',loops])
+
+        self.assertEqual(parser.login, login)
+        self.assertEqual(parser.passw, password)
+        self.assertEqual(parser.sex, sex)
+        self.assertEqual(str(parser.loops), loops)
 
 if __name__ == '__main__':
-
-    parser = main.make.parse_args(["--login", "123","--passw", "456"])
-    args = parser.parse_args()
-    print(args)
+    unittest.main()
